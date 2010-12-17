@@ -1,0 +1,3 @@
+.build/
+Pod-Weaver-Plugin-EnsureUniqueSections-*
+.build-timestamp
