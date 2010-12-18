@@ -13,10 +13,12 @@ use Carp;
 with 'Pod::Weaver::Role::Finalizer';
 # ABSTRACT: Ensure that POD has no duplicate section headers.
 
-=attr lax
+=attr strict
 
-If true (the default), certain similar section headers will be considered
-equivalent. The following similarities are considered (more may be added later):
+If set to true (1), section headers will only be considered duplicates
+if they match exactly. If false (the default), certain similar section
+headers will be considered equivalent. The following similarities are
+considered (more may be added later):
 
 =over 4
 
@@ -39,6 +41,10 @@ of "LICENSE AND COPYRIGHT".
 "AUTHOR" and "AUTHORS" are the same section. A section header
 consisting of multiple words, such as "DISCLAIMER OF WARRANTY", is not
 affected by this rule.
+
+This rule uses L<Lingua::EN::Inflect::Number> to interconvert between
+singulars and plurals. Hopefully you don't need to make a section
+called C<OCTOPI>.
 
 =back
 
