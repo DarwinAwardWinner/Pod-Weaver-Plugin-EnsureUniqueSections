@@ -38,6 +38,7 @@ of "LICENSE AND COPYRIGHT".
 
 =item Plurals
 
+A plural noun is considered equivalent to its singular. For example,
 "AUTHOR" and "AUTHORS" are the same section. A section header
 consisting of multiple words, such as "DISCLAIMER OF WARRANTY", is not
 affected by this rule.
