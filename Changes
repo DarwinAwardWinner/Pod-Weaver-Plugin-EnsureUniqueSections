@@ -2,6 +2,10 @@ Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
 
+0.103531  2010-12-19 02:13:42 EST5EDT
+    - More detailed documentation
+    - No code changes
+
 0.103520  2010-12-17 23:32:01 EST5EDT
     - Updated attr documentation to match code
 
