@@ -73,7 +73,7 @@ sub _header_key {
         $text = $text
             ->split(qr{ AND }i)
                 ->map(sub { m{\W} ? $_ : to_S $_; })
-                    ->sort->join(" AND ");
+                    ->sort->join(' AND ');
     }
     return $text;
 }
