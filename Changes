@@ -2,6 +2,12 @@ Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
 
+0.111220  2011-05-01 20:23:46 PST8PDT
+    - Fixed a bug: Module no longer produces cryptic errors when
+      encountering unknown POD elements (fix contributed by
+      apocalypse)
+    - Minor documentation formatting fixes that you won't notice
+
 0.103531  2010-12-19 02:13:42 EST5EDT
     - More detailed documentation
     - No code changes
