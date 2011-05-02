@@ -128,7 +128,7 @@ warn you.
 
 By default, this module does some tricks to detect similar headers,
 such as C<AUTHOR> and C<AUTHORS>. You can turn this off by setting
-C<strict = 1> in F<weaver.ini>, in which case only *exactly identical*
+C<strict = 1> in F<weaver.ini>, in which case only I<exactly identical>
 headers will be considered duplicates of each other.
 
 =head2 DIAGNOSTIC MESSAGES
