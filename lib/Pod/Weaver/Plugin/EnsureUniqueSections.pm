@@ -89,7 +89,7 @@ nothing. It does not modify the POD in any way.
 sub finalize_document {
     my ($self, $document) = @_;
     my $headers = $document->children
-        ->grep(sub{ $_->command eq 'head1' })
+        ->grep(sub{ $_->can( 'command' ) and $_->command eq 'head1' })
             ->map(sub{ $_->content });
     my %header_group;
     for my $h (@$headers) {
