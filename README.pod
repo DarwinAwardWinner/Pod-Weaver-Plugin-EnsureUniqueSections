@@ -6,7 +6,7 @@ Pod::Weaver::Plugin::EnsureUniqueSections - Ensure that POD has no duplicate sec
 
 =head1 VERSION
 
-version 0.111220
+version 0.121510
 
 =head1 SYNOPSIS
 
@@ -80,6 +80,20 @@ Note that these rules apply recursively, so C<Authors; and
 Contributors> would be a duplicate of C< CONTRIBUTORS AND AUTHOR>.
 
 =head1 METHODS
+
+=head2 prepare_input
+
+This method modifies the weaver object by moving EnsureUniqueSections
+to the end of the weaver's plugin list to ensure that it gets to look
+at the final woven POD.
+
+THIS IS PURE EVIL. This is a hack to ensure that this plugin gets "the
+last word". Obviously if all plugins used this it would be total
+chaos. I welcome alternative suggestions. The main issue is that when
+other Finalizers, such as Section::Leftovers (which happens to be the
+most likely plugin to create duplicate sections), produce sections,
+this plugin will only see those sections if it runs after those
+Finalizers. Hence the need to be the last plugin on the list.
 
 =head2 finalize_document
 

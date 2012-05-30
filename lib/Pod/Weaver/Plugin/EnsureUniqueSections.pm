@@ -5,12 +5,13 @@ use utf8;
 package Pod::Weaver::Plugin::EnsureUniqueSections;
 use Moose;
 use MooseX::Has::Sugar;
-use Moose::Autobox;
+use Moose::Autobox 0.10;
 use Text::Trim;
 
 use Lingua::EN::Inflect::Number qw(to_S);
 use Carp;
 with 'Pod::Weaver::Role::Finalizer';
+with 'Pod::Weaver::Role::Preparer';
 # ABSTRACT: Ensure that POD has no duplicate section headers.
 
 =attr strict
@@ -76,6 +77,29 @@ sub _header_key {
                     ->sort->join(' AND ');
     }
     return $text;
+}
+
+=method prepare_input
+
+This method modifies the weaver object by moving EnsureUniqueSections
+to the end of the weaver's plugin list to ensure that it gets to look
+at the final woven POD.
+
+THIS IS PURE EVIL. This is a hack to ensure that this plugin gets "the
+last word". Obviously if all plugins used this it would be total
+chaos. I welcome alternative suggestions. The main issue is that when
+other Finalizers, such as Section::Leftovers (which happens to be the
+most likely plugin to create duplicate sections), produce sections,
+this plugin will only see those sections if it runs after those
+Finalizers. Hence the need to be the last plugin on the list.
+
+=cut
+
+sub prepare_input {
+    my $self = shift;
+    # Put EnsureUniqueSections plugins at the end
+    my $plugins = $self->weaver->plugins;
+    @$plugins = ((grep { $_ != $self } @$plugins), $self);
 }
 
 =method finalize_document
