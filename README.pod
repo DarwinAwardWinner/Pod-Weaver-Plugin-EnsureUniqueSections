@@ -6,7 +6,7 @@ Pod::Weaver::Plugin::EnsureUniqueSections - Ensure that POD has no duplicate sec
 
 =head1 VERSION
 
-version 0.121510
+version 0.121550
 
 =head1 SYNOPSIS
 
@@ -128,7 +128,11 @@ C<rct+perlbug@thompsonclan.org>.
 
 =item *
 
-L<Pod::Weaver>
+L<Pod::Weaver> - The module that this is a plugin for.
+
+=item *
+
+L<Lingua::EN::Inflect::Number> - Used to determine the singular forms of plural nouns.
 
 =back
 
