@@ -186,4 +186,5 @@ C<rct+perlbug@thompsonclan.org>.
 =head1 SEE ALSO
 
 =for :list
-* L<Pod::Weaver>
+* L<Pod::Weaver> - The module that this is a plugin for.
+* L<Lingua::EN::Inflect::Number> - Used to determine the singular forms of plural nouns.
