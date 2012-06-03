@@ -125,9 +125,7 @@ sub finalize_document {
             ->sort;
     if (@$duplicate_headers > 0) {
         my $message = "Error: The following headers appear multiple times: '" . $duplicate_headers->join(q{', '}) . q{'};
-        # TODO: Should this be $self->log_fatal($message)? If so,
-        # please change it.
-        croak $message;
+        $self->log_fatal($message);
     }
 }
 
