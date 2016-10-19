@@ -124,6 +124,17 @@ sub finalize_document {
         ->map(sub{ @{$header_group{$_}} > 1 ? $header_group{$_}->head : () })
             ->sort;
     if (@$duplicate_headers > 0) {
+        my $pod_string = "";
+        for my $h (@$duplicate_headers) {
+            for my $node (@{ $document->children->grep(
+                sub {
+                    $_->can('command') && $_->command eq 'head1' &&
+                        $_->content eq $h
+                    }) }) {
+                $pod_string .= $node->as_pod_string;
+            }
+        }
+        $self->log_debug(["POD of duplicated headers:\n\n%s", $pod_string]);
         my $message = "Error: The following headers appear multiple times: '" . $duplicate_headers->join(q{', '}) . q{'};
         $self->log_fatal($message);
     }
