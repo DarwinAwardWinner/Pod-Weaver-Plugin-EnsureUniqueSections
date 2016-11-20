@@ -2,6 +2,9 @@ Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
 
+0.163250  2016-11-19 23:15:36-08:00 America/Los_Angeles
+    - Log content of duplicated sections to aid debugging
+
 0.121550  2012-06-03 12:21:31 America/Los_Angeles
     - Fixed order-dependence in weaver.ini: Previously it was possible
       that plugins (specifically plugins doing the

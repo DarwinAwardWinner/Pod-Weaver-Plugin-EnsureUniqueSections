@@ -6,7 +6,7 @@ Pod::Weaver::Plugin::EnsureUniqueSections - Ensure that POD has no duplicate sec
 
 =head1 VERSION
 
-version 0.121550
+version 0.163250
 
 =head1 SYNOPSIS
 
@@ -174,3 +174,4 @@ FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
 DAMAGES.
 
+=cut
