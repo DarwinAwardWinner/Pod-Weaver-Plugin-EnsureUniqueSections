@@ -2,7 +2,7 @@ dist: trusty
 sudo: false
 language: perl
 perl:
-  - "5.8"                       # Oldest perl
+  - "5.12"                      # Oldest supported perl
   - "5.26"                      # Current release perl
   - "dev"
 env: AUTHOR_TESTING=1
